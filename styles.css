@@ -1,394 +1,73 @@
-/* ==========================================================================
-   VARIABLES Y CONFIGURACIÓN GENERAL
-   ========================================================================== */
 :root {
-  --color-white: #FFFFFF;
-  --color-bg: #FCFCFA;
-  --color-gold-sand: #D3B486;
-  --color-gold-dark: #C29D67;
-  --color-sage-green: #8E9178;
-  --color-text-gray: #6B6B6B;
-  --color-text-dark: #4A4A4A;
-  --color-blush-pink: #EBDCDD;
-  --color-gold-gradient-start: #D8B78A;
-  --color-gold-gradient-end: #BA9561;
-
-  --font-calligraphy: 'Alex Brush', cursive;
-  --font-serif-luxury: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
-  --font-sans-clean: 'Montserrat', sans-serif;
+  --white: #fff;
+  --gold: #d3b486;
+  --gold-dark: #c6a574;
+  --sage: #a3a38f;
+  --gray: #858585;
+  --pink: #ebdcdd;
+  --page-width: 928px;
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* { box-sizing: border-box; }
+html { background: var(--white); }
+body { margin: 0; color: var(--gray); background: var(--white); font-family: "Montserrat", Arial, sans-serif; overflow-x: hidden; }
+.invitation { position: relative; width: 100%; max-width: var(--page-width); min-height: 100vh; margin: 0 auto; padding-top: 4.1%; text-align: center; isolation: isolate; }
+.floral { position: absolute; top: -2px; width: 43%; z-index: -1; pointer-events: none; }
+.floral img { display: block; width: 100%; height: auto; }
+.floral-left { left: -1.5%; }
+.floral-right { right: -1.5%; transform: scaleX(-1); }
+.hero-envelope { width: 84%; max-width: 780px; margin: 0 auto; position: relative; }
+.envelope { position: relative; width: 100%; aspect-ratio: 780 / 830; }
+.envelope-frame { position: absolute; inset: 0 0 0 0; background: var(--gold-dark); clip-path: polygon(50% 0, 100% 39%, 100% 100%, 0 100%, 0 39%); border-radius: 0; }
+.photo-window { position: absolute; left: 2.5%; right: 2.5%; top: 2.4%; height: 73%; overflow: hidden; clip-path: polygon(50% 0, 58% 0, 100% 42%, 100% 49%, 50% 100%, 0 49%, 0 42%); background: #e8ddce; }
+.photo-window img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 36%; }
+.flap { position: absolute; top: 40%; width: 51%; height: 60%; background: #d4b78b; z-index: 2; }
+.flap-left { left: 0; clip-path: polygon(0 0, 100% 52%, 0 100%); }
+.flap-right { right: 0; clip-path: polygon(100% 0, 0 52%, 100% 100%); }
+.front-flap { position: absolute; left: 0; right: 0; bottom: 0; height: 31%; background: linear-gradient(160deg, #d7bb91, #cfb084); clip-path: polygon(0 100%, 50% 0, 100% 100%); z-index: 3; filter: drop-shadow(0 -3px 3px rgba(96,73,44,.18)); }
+.monogram { position: absolute; z-index: 4; left: 50%; bottom: 1.3%; transform: translateX(-50%); width: 21%; aspect-ratio: 1; border: 2px solid rgba(255,255,255,.96); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; }
+.monogram-letters { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(25px, 6.5vw, 76px); line-height: 1; font-weight: 400; white-space: nowrap; }
+.monogram-botanical { position: absolute; width: 75%; height: 28%; bottom: -5%; left: 12%; }
+.details { padding: 5.8% 5% 0; position: relative; }
+.couple-names { margin: 0; color: var(--sage); font-family: "Great Vibes", cursive; font-size: clamp(54px, 9vw, 102px); font-weight: 400; line-height: 1.13; }
+.ampersand { font-size: .72em; }
+.subtitle { display: flex; justify-content: center; align-items: center; gap: 42px; margin: 2px auto 42px; color: var(--gray); }
+.subtitle p { margin: 0; font: 400 clamp(21px, 3.5vw, 34px)/1.2 "Cormorant Garamond", Georgia, serif; white-space: nowrap; }
+.subtitle span { width: 55px; height: 1px; background: #aaa; }
+.date-pill { display: inline-block; margin: 0 auto 18px; padding: 8px 38px 10px; border-radius: 100px; background: var(--pink); color: var(--gray); font-size: clamp(20px, 3.7vw, 36px); font-weight: 400; line-height: 1.3; white-space: nowrap; }
+.venue { margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: clamp(12px, 1.9vw, 18px); line-height: 1.35; }
+.save-date { margin: 44px 0 76px; font: 400 clamp(38px, 7.2vw, 66px)/1.15 "Cormorant Garamond", Georgia, serif; color: var(--gray); white-space: nowrap; }
+.countdown-intro { margin: 0 0 10px; font-size: 16px; }
+.countdown-area { width: 100%; }
+.countdown { background: var(--sage); width: 100%; min-height: 146px; padding: 22px 12% 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; color: white; }
+.count-unit { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.count-number { font: 400 clamp(43px, 7vw, 66px)/1 "Cormorant Garamond", Georgia, serif; font-variant-numeric: tabular-nums; }
+.count-label { font-size: clamp(12px, 1.8vw, 17px); }
+.wedding-day { background: var(--sage); color: white; margin: 0; padding: 34px 12px; font: 400 clamp(24px, 5vw, 42px) "Cormorant Garamond", Georgia, serif; }
+[hidden] { display: none !important; }
+@media (min-width: 929px) { .invitation { padding-top: 38px; } .hero-envelope { width: 84%; } }
+@media (max-width: 600px) {
+  .invitation { padding-top: 5%; }
+  .floral { width: 48%; }
+  .hero-envelope { width: 88%; }
+  .details { padding-top: 7%; }
+  .subtitle { gap: 17px; margin-bottom: 27px; }
+  .subtitle span { width: 30px; }
+  .date-pill { padding: 8px 19px 9px; margin-bottom: 16px; }
+  .save-date { margin: 34px 0 52px; font-size: clamp(31px, 7vw, 42px); }
+  .countdown-intro { margin-bottom: 8px; font-size: 13px; }
+  .countdown { min-height: 112px; padding: 17px 4% 15px; gap: 2px; }
 }
-
-body {
-  background-color: #ECECE8;
-  font-family: var(--font-sans-clean);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  color: var(--color-text-gray);
-  -webkit-font-smoothing: antialiased;
+@media (max-width: 360px) {
+  .couple-names { font-size: 50px; }
+  .date-pill { font-size: 17px; padding-inline: 13px; }
+  .save-date { font-size: 29px; }
+  .count-number { font-size: 39px; }
 }
-
-/* Tarjeta / Papelería Vertical Centrada */
-.invitation-card {
-  position: relative;
-  width: 100%;
-  max-width: 520px;
-  background-color: var(--color-white);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
-  padding: 30px 20px 0 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+@media (prefers-reduced-motion: no-preference) {
+  .hero-envelope, .details > * { animation: rise-in .7s ease-out both; }
+  .details > *:nth-child(2) { animation-delay: .08s; }
+  .details > *:nth-child(3) { animation-delay: .14s; }
+  .details > *:nth-child(4) { animation-delay: .2s; }
+  @keyframes rise-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 }
-
-/* ==========================================================================
-   ILUSTRACIONES FLORALES
-   ========================================================================== */
-.floral-decoration {
-  position: absolute;
-  top: 0;
-  width: 170px;
-  height: 170px;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.85;
-}
-
-.floral-decoration.top-left {
-  left: 0;
-  transform: translate(-10%, -10%);
-}
-
-.floral-decoration.top-right {
-  right: 0;
-  transform: translate(10%, -10%);
-}
-
-.floral-decoration svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* ==========================================================================
-   SECCIÓN C: SOBRE TRIDIMENSIONAL CON FOTOGRAFÍA
-   ========================================================================== */
-.envelope-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  z-index: 2;
-}
-
-.envelope-container {
-  position: relative;
-  width: 100%;
-  padding-top: 110%; /* Relación de aspecto proporcional al diseño original */
-  overflow: hidden;
-}
-
-/* Solapa trasera dorada */
-.envelope-back-flap {
-  position: absolute;
-  top: 0;
-  left: 5%;
-  width: 90%;
-  height: 60%;
-  background: linear-gradient(180deg, var(--color-gold-gradient-start) 0%, var(--color-gold-gradient-end) 100%);
-  clip-path: polygon(50% 0%, 100% 45%, 0% 45%);
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-}
-
-/* Marco de la Foto */
-.photo-frame {
-  position: absolute;
-  top: 4%;
-  left: 8%;
-  width: 84%;
-  height: 65%;
-  z-index: 2;
-  overflow: hidden;
-  clip-path: polygon(50% 0%, 100% 38%, 100% 100%, 0% 100%, 0% 38%);
-}
-
-.photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  display: block;
-}
-
-/* Solapas Frontales en V */
-.envelope-flap-left {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 58%;
-  height: 62%;
-  background: linear-gradient(135deg, #DDB988 0%, #C49B62 100%);
-  clip-path: polygon(0 0, 100% 100%, 0 100%);
-  z-index: 3;
-  filter: drop-shadow(2px -2px 3px rgba(0,0,0,0.12));
-}
-
-.envelope-flap-right {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 58%;
-  height: 62%;
-  background: linear-gradient(-135deg, #D4AF7E 0%, #B88E55 100%);
-  clip-path: polygon(100% 0, 0 100%, 100% 100%);
-  z-index: 3;
-  filter: drop-shadow(-2px -2px 3px rgba(0,0,0,0.12));
-}
-
-.envelope-bottom-base {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 48%;
-  background: linear-gradient(180deg, rgba(206,168,114,0) 0%, #C8A068 100%);
-  z-index: 4;
-  clip-path: polygon(0 100%, 50% 35%, 100% 100%);
-}
-
-/* Emblema Circular con Iniciales */
-.emblem-seal {
-  position: absolute;
-  bottom: 22%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.emblem-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.emblem-seal .initials {
-  font-family: var(--font-serif-luxury);
-  font-size: 2rem;
-  color: var(--color-white);
-  font-weight: 400;
-  letter-spacing: 2px;
-  line-height: 1;
-}
-
-.emblem-wreath {
-  width: 65px;
-  height: 24px;
-  margin-top: 2px;
-}
-
-/* ==========================================================================
-   SECCIÓN D: NOMBRES DE LOS NOVIOS
-   ========================================================================== */
-.couple-names {
-  font-family: var(--font-calligraphy);
-  font-size: 4.2rem;
-  color: var(--color-sage-green);
-  font-weight: 400;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  line-height: 1.1;
-}
-
-/* ==========================================================================
-   SECCIÓN E: SUBTÍTULO
-   ========================================================================== */
-.subtitle-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  width: 80%;
-  margin-bottom: 25px;
-}
-
-.subtitle-text {
-  font-family: var(--font-serif-luxury);
-  font-size: 0.95rem;
-  letter-spacing: 3px;
-  color: #7A7A7A;
-  font-weight: 400;
-}
-
-.divider-line {
-  height: 1px;
-  width: 40px;
-  background-color: #D1D1D1;
-}
-
-/* ==========================================================================
-   SECCIÓN F: FECHA EN CÁPSULA
-   ========================================================================== */
-.date-capsule {
-  background-color: var(--color-blush-pink);
-  padding: 10px 28px;
-  border-radius: 50px;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.date-text {
-  font-family: var(--font-sans-clean);
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #6E6E6E;
-  letter-spacing: 2px;
-}
-
-/* ==========================================================================
-   SECCIÓN G: LUGAR DE LA CEREMONIA
-   ========================================================================== */
-.location-details {
-  margin-bottom: 35px;
-}
-
-.location-details .venue,
-.location-details .city {
-  font-family: var(--font-sans-clean);
-  font-size: 0.78rem;
-  letter-spacing: 1.8px;
-  color: #7A7A7A;
-  font-weight: 500;
-  line-height: 1.6;
-}
-
-/* ==========================================================================
-   SECCIÓN H: TEXTO PRINCIPAL
-   ========================================================================== */
-.save-the-date-heading {
-  font-family: var(--font-serif-luxury);
-  font-size: 2.1rem;
-  letter-spacing: 4px;
-  color: #5A5A5A;
-  font-weight: 400;
-  margin-bottom: 35px;
-}
-
-/* ==========================================================================
-   SECCIÓN I: CUENTA REGRESIVA
-   ========================================================================== */
-.countdown-section {
-  width: calc(100% + 40px);
-  margin-left: -20px;
-  margin-right: -20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.countdown-label {
-  font-family: var(--font-sans-clean);
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  color: #8C8C8C;
-  margin-bottom: 12px;
-}
-
-.countdown-banner {
-  width: 100%;
-  background-color: var(--color-sage-green);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 22px 10px;
-}
-
-.countdown-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-}
-
-.countdown-number {
-  font-family: var(--font-serif-luxury);
-  font-size: 2.8rem;
-  color: var(--color-white);
-  font-weight: 400;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.countdown-unit {
-  font-family: var(--font-sans-clean);
-  font-size: 0.7rem;
-  color: var(--color-white);
-  letter-spacing: 2px;
-  font-weight: 400;
-}
-
-.finished-message {
-  width: 100%;
-  background-color: var(--color-sage-green);
-  color: var(--color-white);
-  font-family: var(--font-serif-luxury);
-  font-size: 1.5rem;
-  letter-spacing: 3px;
-  padding: 25px 10px;
-}
-
-/* ==========================================================================
-   DISEÑO RESPONSIVO Y ACCESIBILIDAD
-   ========================================================================== */
-@media (max-width: 480px) {
-  .couple-names {
-    font-size: 3.4rem;
-  }
-
-  .save-the-date-heading {
-    font-size: 1.6rem;
-    letter-spacing: 3px;
-  }
-
-  .date-text {
-    font-size: 1.05rem;
-  }
-
-  .emblem-seal {
-    width: 90px;
-    height: 90px;
-  }
-
-  .emblem-seal .initials {
-    font-size: 1.6rem;
-  }
-
-  .countdown-number {
-    font-size: 2.2rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; } }
