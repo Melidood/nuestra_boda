@@ -82,14 +82,14 @@ body {
   z-index: 2;
 }
 
-/* Monograma / Logo sobre el sobre */
+/* Monograma / Logo sobre el sobre centrado */
 .monogram-container {
   position: absolute;
   z-index: 4;
   left: 50%;
-  bottom: 12%;
+  bottom: 6%;
   transform: translateX(-50%);
-  width: 22%;
+  width: 26%;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
