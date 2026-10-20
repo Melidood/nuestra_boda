@@ -13,7 +13,7 @@ body { margin: 0; color: var(--gray); background: var(--white); font-family: "Mo
 
 .invitation { position: relative; width: 100%; max-width: var(--page-width); min-height: 100vh; margin: 0 auto; padding-top: 4.1%; text-align: center; isolation: isolate; }
 
-/* Corrección para imágenes con fondo negro */
+/* Corrección para eliminar fondo negro de las flores */
 .floral { position: absolute; top: -2px; width: 43%; z-index: -1; pointer-events: none; mix-blend-mode: multiply; }
 .floral img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
 .floral-left { left: -1.5%; }
@@ -30,7 +30,7 @@ body { margin: 0; color: var(--gray); background: var(--white); font-family: "Mo
 .flap-right { right: 0; clip-path: polygon(100% 0, 0 52%, 100% 100%); }
 .front-flap { position: absolute; left: 0; right: 0; bottom: 0; height: 31%; background: linear-gradient(160deg, #d7bb91, #cfb084); clip-path: polygon(0 100%, 50% 0, 100% 100%); z-index: 3; filter: drop-shadow(0 -3px 3px rgba(96,73,44,.18)); }
 
-/* Contenedor del Logo exacto A&J */
+/* Contenedor del Logo exacto ayj.svg */
 .monogram-container {
   position: absolute;
   z-index: 4;
@@ -68,7 +68,7 @@ body { margin: 0; color: var(--gray); background: var(--white); font-family: "Mo
   padding: 14px 32px;
   border-radius: 50px;
   text-decoration: none;
-  font-family: var(--font-sans-clean);
+  font-family: Montserrat, Arial, sans-serif;
   font-size: clamp(13px, 1.8vw, 16px);
   letter-spacing: 2px;
   font-weight: 500;
@@ -83,16 +83,16 @@ body { margin: 0; color: var(--gray); background: var(--white); font-family: "Mo
 
 .save-date { margin: 30px 0 60px; font: 400 clamp(38px, 7.2vw, 66px)/1.15 "Cormorant Garamond", Georgia, serif; color: var(--gray); white-space: nowrap; }
 
-/* Cuenta Regresiva de 4 Columnas */
+/* Cuenta Regresiva de 4 Columnas (Días, Horas, Minutos, Segundos) */
 .countdown-intro { margin: 0 0 10px; font-size: 16px; }
 .countdown-area { width: 100%; }
 .countdown { background: var(--sage); width: 100%; min-height: 146px; padding: 22px 5% 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; color: white; }
 .count-unit { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.count-number { font: 400 clamp(36px, 6vw, 62px)/1 "Cormorant Garamond", Georgia, serif; font-variant-numeric: tabular-nums; }
-.count-label { font-size: clamp(11px, 1.5vw, 15px); letter-spacing: 1.5px; }
+.count-number { font: 400 clamp(32px, 5.5vw, 58px)/1 "Cormorant Garamond", Georgia, serif; font-variant-numeric: tabular-nums; }
+.count-label { font-size: clamp(10px, 1.4vw, 14px); letter-spacing: 1.5px; }
 .wedding-day { background: var(--sage); color: white; margin: 0; padding: 34px 12px; font: 400 clamp(24px, 5vw, 42px) "Cormorant Garamond", Georgia, serif; }
 
-/* Botón flotante para la Música */
+/* Botón flotante de Música */
 .music-btn {
   position: fixed;
   bottom: 20px;
