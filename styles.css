@@ -1,5 +1,5 @@
 :root {
-  --white: #fff;
+  --white: #ffffff;
   --gold: #d3b486;
   --gold-dark: #c6a574;
   --sage: #a3a38f;
@@ -7,103 +7,306 @@
   --pink: #ebdcdd;
   --page-width: 928px;
 }
-* { box-sizing: border-box; }
-html { background: var(--white); }
-body { margin: 0; color: var(--gray); background: var(--white); font-family: "Montserrat", Arial, sans-serif; overflow-x: hidden; }
 
-.invitation { position: relative; width: 100%; max-width: var(--page-width); min-height: 100vh; margin: 0 auto; padding-top: 4.1%; text-align: center; isolation: isolate; }
+* { 
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
 
-/* Corrección y control de tamaño para las flores vectoriales en las esquinas */
+html { 
+  background: var(--white); 
+}
+
+body { 
+  margin: 0; 
+  color: var(--gray); 
+  background: var(--white); 
+  font-family: "Montserrat", Arial, sans-serif; 
+  overflow-x: hidden; 
+}
+
+/* Contenedor principal */
+.invitation { 
+  position: relative; 
+  width: 100%; 
+  max-width: var(--page-width); 
+  min-height: 100vh; 
+  margin: 0 auto; 
+  padding-top: 25px; 
+  text-align: center; 
+  isolation: isolate; 
+}
+
+/* Esquinas florales proporcionadas y sin fondo negro */
 .floral { 
-  position: absolute !important; 
-  top: 0 !important; 
-  width: 200px !important; 
-  max-width: 35vw !important; 
-  z-index: 1 !important; 
-  pointer-events: none !important; 
+  position: absolute; 
+  top: 0; 
+  width: 170px; 
+  max-width: 30vw; 
+  z-index: 1; 
+  pointer-events: none; 
   mix-blend-mode: multiply; 
 }
+
 .floral img { 
-  display: block !important; 
-  width: 100% !important; 
-  height: auto !important; 
+  display: block; 
+  width: 100%; 
+  height: auto; 
   mix-blend-mode: multiply; 
 }
-.floral-left { left: 0 !important; }
-.floral-right { right: 0 !important; transform: scaleX(-1); }
 
-/* Estructura del Sobre */
-.hero-envelope { width: 84%; max-width: 780px; margin: 0 auto; position: relative; }
-.envelope { position: relative; width: 100%; aspect-ratio: 780 / 830; }
-.envelope-frame { position: absolute; inset: 0 0 0 0; background: var(--gold-dark); clip-path: polygon(50% 0, 100% 39%, 100% 100%, 0 100%, 0 39%); }
-.photo-window { position: absolute; left: 2.5%; right: 2.5%; top: 2.4%; height: 73%; overflow: hidden; clip-path: polygon(50% 0, 58% 0, 100% 42%, 100% 49%, 50% 100%, 0 49%, 0 42%); background: #e8ddce; }
-.photo-window img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 36%; }
-.flap { position: absolute; top: 40%; width: 51%; height: 60%; background: #d4b78b; z-index: 2; }
-.flap-left { left: 0; clip-path: polygon(0 0, 100% 52%, 0 100%); }
-.flap-right { right: 0; clip-path: polygon(100% 0, 0 52%, 100% 100%); }
-.front-flap { position: absolute; left: 0; right: 0; bottom: 0; height: 31%; background: linear-gradient(160deg, #d7bb91, #cfb084); clip-path: polygon(0 100%, 50% 0, 100% 100%); z-index: 3; filter: drop-shadow(0 -3px 3px rgba(96,73,44,.18)); }
+.floral-left { 
+  left: 0; 
+}
 
-/* Contenedor del Logo exacto ayj.svg */
+.floral-right { 
+  right: 0; 
+  transform: scaleX(-1); 
+}
+
+/* ==========================================================
+   ESTRUCTURA EXACTA DEL SOBRE (Proporción idéntica a la ref)
+   ========================================================== */
+.hero-envelope { 
+  width: 82%; 
+  max-width: 540px; 
+  margin: 0 auto; 
+  position: relative; 
+  z-index: 2;
+}
+
+.envelope { 
+  position: relative; 
+  width: 100%; 
+  aspect-ratio: 540 / 580; /* Proporción exacta para que no se estire */
+}
+
+/* Marco trasero del sobre */
+.envelope-frame { 
+  position: absolute; 
+  inset: 0; 
+  background: var(--gold-dark); 
+  clip-path: polygon(50% 0%, 100% 36%, 100% 100%, 0% 100%, 0% 36%); 
+}
+
+/* Ventana donde va la fotografía de los novios */
+.photo-window { 
+  position: absolute; 
+  left: 3%; 
+  right: 3%; 
+  top: 3%; 
+  height: 68%; 
+  overflow: hidden; 
+  clip-path: polygon(50% 0%, 57% 0%, 100% 37%, 100% 43%, 50% 100%, 0% 43%, 0% 37%); 
+  background: #e8ddce; 
+}
+
+.photo-window img { 
+  width: 100%; 
+  height: 100%; 
+  display: block; 
+  object-fit: cover; 
+  object-position: center 30%; 
+}
+
+/* Solapas laterales en V del sobre */
+.flap { 
+  position: absolute; 
+  top: 38%; 
+  width: 51%; 
+  height: 62%; 
+  background: #d4b78b; 
+  z-index: 2; 
+}
+
+.flap-left { 
+  left: 0; 
+  clip-path: polygon(0 0, 100% 50%, 0 100%); 
+}
+
+.flap-right { 
+  right: 0; 
+  clip-path: polygon(100% 0, 0 50%, 100% 100%); 
+}
+
+/* Solapa frontal inferior con sombra de profundidad */
+.front-flap { 
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  height: 35%; 
+  background: linear-gradient(160deg, #d7bb91, #cfb084); 
+  clip-path: polygon(0 100%, 50% 15%, 100% 100%); 
+  z-index: 3; 
+  filter: drop-shadow(0 -3px 4px rgba(96, 73, 44, 0.2)); 
+}
+
+/* Contenedor exacto del logotipo ayj.svg */
 .monogram-container {
   position: absolute;
   z-index: 4;
   left: 50%;
-  bottom: 0%;
+  bottom: 2%;
   transform: translateX(-50%);
-  width: 25%;
+  width: 22%;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .monogram-svg {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-/* Tipografía y Textos */
-.details { padding: 5.8% 5% 0; position: relative; }
-.couple-names { margin: 0; color: var(--sage); font-family: "Great Vibes", cursive; font-size: clamp(54px, 9vw, 102px); font-weight: 400; line-height: 1.13; }
-.ampersand { font-size: .72em; }
-.subtitle { display: flex; justify-content: center; align-items: center; gap: 42px; margin: 2px auto 42px; color: var(--gray); }
-.subtitle p { margin: 0; font: 400 clamp(21px, 3.5vw, 34px)/1.2 "Cormorant Garamond", Georgia, serif; white-space: nowrap; }
-.subtitle span { width: 55px; height: 1px; background: #aaa; }
-.date-pill { display: inline-block; margin: 0 auto 18px; padding: 8px 38px 10px; border-radius: 100px; background: var(--pink); color: var(--gray); font-size: clamp(20px, 3.7vw, 36px); font-weight: 400; line-height: 1.3; white-space: nowrap; }
-.venue { margin: 0 0 30px; display: flex; flex-direction: column; gap: 8px; font-size: clamp(12px, 1.9vw, 18px); line-height: 1.35; }
+/* ==========================================================
+   TEXTOS Y SECCIONES INFERIORES
+   ========================================================== */
+.details { 
+  padding: 20px 5% 0; 
+  position: relative; 
+  z-index: 3;
+}
+
+.couple-names { 
+  margin: 10px 0 0 0; 
+  color: var(--sage); 
+  font-family: "Great Vibes", cursive; 
+  font-size: clamp(48px, 8.5vw, 92px); 
+  font-weight: 400; 
+  line-height: 1.1; 
+}
+
+.ampersand { 
+  font-size: 0.72em; 
+}
+
+.subtitle { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 30px; 
+  margin: 5px auto 25px; 
+  color: var(--gray); 
+}
+
+.subtitle p { 
+  margin: 0; 
+  font: 400 clamp(18px, 3vw, 30px)/1.2 "Cormorant Garamond", Georgia, serif; 
+  white-space: nowrap; 
+}
+
+.subtitle span { 
+  width: 45px; 
+  height: 1px; 
+  background: #aaa; 
+}
+
+.date-pill { 
+  display: inline-block; 
+  margin: 0 auto 15px; 
+  padding: 8px 30px; 
+  border-radius: 100px; 
+  background: var(--pink); 
+  color: var(--gray); 
+  font-size: clamp(18px, 3.2vw, 32px); 
+  font-weight: 400; 
+  line-height: 1.3; 
+  white-space: nowrap; 
+}
+
+.venue { 
+  margin: 0 0 20px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+  font-size: clamp(11px, 1.7vw, 16px); 
+  line-height: 1.35; 
+}
 
 /* Botón de Confirmación RSVP */
-.rsvp-container { margin: 25px 0; }
+.rsvp-container { 
+  margin: 20px 0; 
+}
+
 .rsvp-btn {
   display: inline-block;
   background-color: var(--sage);
   color: var(--white);
-  padding: 14px 32px;
+  padding: 12px 28px;
   border-radius: 50px;
   text-decoration: none;
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: clamp(13px, 1.8vw, 16px);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(12px, 1.6vw, 15px);
   letter-spacing: 2px;
   font-weight: 500;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
 .rsvp-btn:hover {
   background-color: var(--gold-dark);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
-.save-date { margin: 30px 0 60px; font: 400 clamp(38px, 7.2vw, 66px)/1.15 "Cormorant Garamond", Georgia, serif; color: var(--gray); white-space: nowrap; }
+.save-date { 
+  margin: 20px 0 40px; 
+  font: 400 clamp(32px, 6.5vw, 56px)/1.15 "Cormorant Garamond", Georgia, serif; 
+  color: var(--gray); 
+  white-space: nowrap; 
+}
 
 /* Cuenta Regresiva de 4 Columnas (Días, Horas, Minutos, Segundos) */
-.countdown-intro { margin: 0 0 10px; font-size: 16px; }
-.countdown-area { width: 100%; }
-.countdown { background: var(--sage); width: 100%; min-height: 146px; padding: 22px 5% 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; color: white; }
-.count-unit { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.count-number { font: 400 clamp(32px, 5.5vw, 58px)/1 "Cormorant Garamond", Georgia, serif; font-variant-numeric: tabular-nums; }
-.count-label { font-size: clamp(10px, 1.4vw, 14px); letter-spacing: 1.5px; }
-.wedding-day { background: var(--sage); color: white; margin: 0; padding: 34px 12px; font: 400 clamp(24px, 5vw, 42px) "Cormorant Garamond", Georgia, serif; }
+.countdown-intro { 
+  margin: 0 0 8px; 
+  font-size: 14px; 
+  letter-spacing: 1.5px;
+}
+
+.countdown-area { 
+  width: 100%; 
+}
+
+.countdown { 
+  background: var(--sage); 
+  width: 100%; 
+  min-height: 130px; 
+  padding: 18px 4% 18px; 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 8px; 
+  color: white; 
+}
+
+.count-unit { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 4px; 
+}
+
+.count-number { 
+  font: 400 clamp(28px, 5vw, 50px)/1 "Cormorant Garamond", Georgia, serif; 
+  font-variant-numeric: tabular-nums; 
+}
+
+.count-label { 
+  font-size: clamp(10px, 1.3vw, 13px); 
+  letter-spacing: 1.5px; 
+}
+
+.wedding-day { 
+  background: var(--sage); 
+  color: white; 
+  margin: 0; 
+  padding: 30px 12px; 
+  font: 400 clamp(22px, 4.5vw, 38px) "Cormorant Garamond", Georgia, serif; 
+}
 
 /* Botón flotante de Música */
 .music-btn {
@@ -118,23 +321,21 @@ body { margin: 0; color: var(--gray); background: var(--white); font-family: "Mo
   width: 48px;
   height: 48px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
 }
 
-[hidden] { display: none !important; }
+[hidden] { 
+  display: none !important; 
+}
 
+/* Ajustes responsivos para móviles pequeños */
 @media (max-width: 600px) {
-  .invitation { padding-top: 5%; }
-  .floral { width: 130px !important; }
-  .hero-envelope { width: 88%; }
-  .details { padding-top: 7%; }
-  .subtitle { gap: 17px; margin-bottom: 27px; }
-  .subtitle span { width: 30px; }
-  .date-pill { padding: 8px 19px 9px; margin-bottom: 16px; }
-  .save-date { margin: 25px 0 40px; font-size: clamp(31px, 7vw, 42px); }
-  .countdown { min-height: 112px; padding: 17px 2% 15px; gap: 2px; }
+  .invitation { padding-top: 15px; }
+  .floral { width: 130px; }
+  .hero-envelope { width: 90%; }
+  .countdown { padding: 15px 2% 15px; gap: 4px; }
 }
