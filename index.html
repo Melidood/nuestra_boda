@@ -10,8 +10,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Great+Vibes&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Enlace actualizado con tu archivo styles.css -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -29,21 +27,26 @@
     <div class="floral floral-left" aria-hidden="true"><img src="flores-izquierda.svg" alt=""></div>
     <div class="floral floral-right" aria-hidden="true"><img src="flores-derecha.svg" alt=""></div>
 
-    <!-- Sobre tridimensional con la foto y el logo -->
+    <!-- Sobre Real con la Fotografía y el Logo -->
     <section class="hero-envelope" aria-label="Fotografía de Ana y Julio">
-      <div class="envelope">
-        <div class="envelope-frame"></div>
+      <div class="envelope-image-container">
+        
+        <!-- Solapa superior trasera del sobre real -->
+        <div class="envelope-top-flap"></div>
+
+        <!-- Fotografía de los novios saliendo del sobre -->
         <div class="photo-window">
           <img id="couple-photo" src="foto-pareja-placeholder.png" alt="Fotografía de Ana y Julio">
         </div>
-        <div class="flap flap-left"></div>
-        <div class="flap flap-right"></div>
-        <div class="front-flap"></div>
-        
-        <!-- Emblema circular con el archivo ayj.svg -->
+
+        <!-- Imagen real del sobre como estructura base -->
+        <img src="sobre.jpg" alt="Sobre de invitación" class="real-envelope-bg">
+
+        <!-- Emblema circular exacto con el logo ayj.svg -->
         <div class="monogram-container" aria-label="Logo A y J">
           <img src="ayj.svg" id="monogram-img" alt="Logo Ana & Julio" class="monogram-svg">
         </div>
+
       </div>
     </section>
 
@@ -64,7 +67,7 @@
       <p class="save-date">RESERVA LA FECHA</p>
     </section>
 
-    <!-- Cuenta regresiva con Días, Horas, Minutos y Segundos -->
+    <!-- Cuenta regresiva de 4 columnas (Días, Horas, Minutos, Segundos) -->
     <section class="countdown-area" aria-label="Cuenta regresiva para la boda">
       <p class="countdown-intro" id="countdown-intro">FALTAN:</p>
       <div class="countdown" id="countdown">
