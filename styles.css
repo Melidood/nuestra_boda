@@ -2,7 +2,7 @@
   --white: #ffffff;
   --gold-dark: #c6a574;
   
-  /* Colores exactos indicados en la guía */
+  /* Colores exactos de la guía de diseño */
   --olive-theme: #848559; 
   --pill-bg: #F3E7B5;
   
@@ -60,7 +60,7 @@ body {
 .floral-left { left: 0; }
 .floral-right { right: 0; transform: scaleX(-1); }
 
-/* Estructura del Sobre Vectorial */
+/* Estructura del Sobre */
 .hero-envelope { 
   width: 85%; 
   max-width: 520px; 
@@ -82,44 +82,14 @@ body {
   z-index: 2;
 }
 
-.envelope-top-flap {
-  position: absolute;
-  top: 0;
-  left: 15%;
-  width: 70%;
-  height: 35%;
-  background-color: #d1b181;
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  z-index: 1;
-}
-
-.photo-window { 
-  position: absolute; 
-  left: 12%; 
-  right: 12%; 
-  top: 4%; 
-  height: 52%; 
-  overflow: hidden; 
-  clip-path: polygon(50% 0%, 100% 38%, 100% 100%, 0% 100%, 0% 38%); 
-  background: #e8ddce; 
-  z-index: 3;
-}
-
-.photo-window img { 
-  width: 100%; 
-  height: 100%; 
-  display: block; 
-  object-fit: cover; 
-  object-position: center 30%; 
-}
-
+/* Monograma / Logo sobre el sobre */
 .monogram-container {
   position: absolute;
   z-index: 4;
   left: 50%;
   bottom: 12%;
   transform: translateX(-50%);
-  width: 20%;
+  width: 22%;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -134,14 +104,13 @@ body {
 
 /* Secciones de texto */
 .details { 
-  padding: 15px 5% 0; 
+  padding: 20px 5% 0; 
   position: relative; 
   z-index: 3;
 }
 
-/* Nombres de los novios con la tipografía caligráfica y color #848559 */
 .couple-names { 
-  margin: 5px 0 0 0; 
+  margin: 10px 0 0 0; 
   color: var(--olive-theme); 
   font-family: "Swirly Canalope PERSONAL USE", "Great Vibes", cursive; 
   font-size: clamp(48px, 8.5vw, 92px); 
@@ -173,10 +142,9 @@ body {
   background: #ccc; 
 }
 
-/* Cápsula de fecha con fondo #F3E7B5 y texto #848559 */
 .date-pill { 
   display: inline-block; 
-  margin: 0 auto 15px; 
+  margin: 0 auto 18px; 
   padding: 8px 30px; 
   border-radius: 100px; 
   background: var(--pill-bg); 
@@ -190,7 +158,7 @@ body {
 }
 
 .venue { 
-  margin: 0 0 20px; 
+  margin: 0 0 25px; 
   display: flex; 
   flex-direction: column; 
   gap: 6px; 
@@ -199,37 +167,15 @@ body {
   line-height: 1.35; 
 }
 
-/* Botón de Confirmación RSVP */
-.rsvp-container { margin: 15px 0; }
-.rsvp-btn {
-  display: inline-block;
-  background-color: var(--olive-theme);
-  color: var(--white);
-  padding: 12px 28px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-family: "Mundial Narrow Variable Light", Montserrat, Arial, sans-serif;
-  font-size: clamp(12px, 1.6vw, 15px);
-  letter-spacing: 2px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-.rsvp-btn:hover {
-  background-color: #6d6e48;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-}
-
 .save-date { 
-  margin: 15px 0 35px; 
+  margin: 20px 0 45px; 
   font: 400 clamp(32px, 6.5vw, 56px)/1.15 "Playfair Display", Georgia, serif; 
   letter-spacing: 3px;
   color: var(--gray); 
   white-space: nowrap; 
 }
 
-/* Cuenta Regresiva con fondo #848559 y tipografía Playfair Display */
+/* Cuenta Regresiva */
 .countdown-intro { 
   margin: 0 0 8px; 
   font-size: 14px; 
