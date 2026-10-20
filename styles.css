@@ -1,14 +1,12 @@
 :root {
   --white: #ffffff;
-  --gold: #d3b486;
   --gold-dark: #c6a574;
-  /* Nueva paleta: Verde oliva cálido para nombres y barra inferior */
-  --olive-primary: #8C8A6B; 
-  --olive-dark: #767554;
+  
+  /* Colores exactos indicados en la guía */
+  --olive-theme: #848559; 
+  --pill-bg: #F3E7B5;
+  
   --gray: #757575;
-  --gray-light: #9E9E9E;
-  /* Nuevo fondo para la cápsula de la fecha (champán / amarillo suave) */
-  --champagne-pill: #F3EAE1;
   --page-width: 928px;
 }
 
@@ -26,7 +24,7 @@ body {
   margin: 0; 
   color: var(--gray); 
   background: var(--white); 
-  font-family: "Montserrat", Arial, sans-serif; 
+  font-family: "Mundial Narrow Variable Light", "Montserrat", Arial, sans-serif; 
   overflow-x: hidden; 
 }
 
@@ -134,18 +132,18 @@ body {
   object-fit: contain;
 }
 
-/* Textos y Secciones inferiores */
+/* Secciones de texto */
 .details { 
   padding: 15px 5% 0; 
   position: relative; 
   z-index: 3;
 }
 
-/* Nombres de los novios con el nuevo tono oliva */
+/* Nombres de los novios con la tipografía caligráfica y color #848559 */
 .couple-names { 
   margin: 5px 0 0 0; 
-  color: var(--olive-primary); 
-  font-family: "Great Vibes", cursive; 
+  color: var(--olive-theme); 
+  font-family: "Swirly Canalope PERSONAL USE", "Great Vibes", cursive; 
   font-size: clamp(48px, 8.5vw, 92px); 
   font-weight: 400; 
   line-height: 1.1; 
@@ -164,7 +162,8 @@ body {
 
 .subtitle p { 
   margin: 0; 
-  font: 400 clamp(18px, 3vw, 30px)/1.2 "Cormorant Garamond", Georgia, serif; 
+  font: 400 clamp(18px, 3vw, 30px)/1.2 "Playfair Display", Georgia, serif; 
+  letter-spacing: 2px;
   white-space: nowrap; 
 }
 
@@ -174,14 +173,15 @@ body {
   background: #ccc; 
 }
 
-/* Cápsula de Fecha con fondo champán suave */
+/* Cápsula de fecha con fondo #F3E7B5 y texto #848559 */
 .date-pill { 
   display: inline-block; 
   margin: 0 auto 15px; 
   padding: 8px 30px; 
   border-radius: 100px; 
-  background: var(--champagne-pill); 
-  color: var(--olive-primary); 
+  background: var(--pill-bg); 
+  color: var(--olive-theme); 
+  font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(18px, 3.2vw, 32px); 
   font-weight: 500; 
   letter-spacing: 1.5px;
@@ -195,6 +195,7 @@ body {
   flex-direction: column; 
   gap: 6px; 
   font-size: clamp(11px, 1.7vw, 16px); 
+  letter-spacing: 1.5px;
   line-height: 1.35; 
 }
 
@@ -202,12 +203,12 @@ body {
 .rsvp-container { margin: 15px 0; }
 .rsvp-btn {
   display: inline-block;
-  background-color: var(--olive-primary);
+  background-color: var(--olive-theme);
   color: var(--white);
   padding: 12px 28px;
   border-radius: 50px;
   text-decoration: none;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Mundial Narrow Variable Light", Montserrat, Arial, sans-serif;
   font-size: clamp(12px, 1.6vw, 15px);
   letter-spacing: 2px;
   font-weight: 500;
@@ -215,19 +216,20 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .rsvp-btn:hover {
-  background-color: var(--olive-dark);
+  background-color: #6d6e48;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
 .save-date { 
   margin: 15px 0 35px; 
-  font: 400 clamp(32px, 6.5vw, 56px)/1.15 "Cormorant Garamond", Georgia, serif; 
+  font: 400 clamp(32px, 6.5vw, 56px)/1.15 "Playfair Display", Georgia, serif; 
+  letter-spacing: 3px;
   color: var(--gray); 
   white-space: nowrap; 
 }
 
-/* Cuenta Regresiva con el nuevo tono verde oliva elegante */
+/* Cuenta Regresiva con fondo #848559 y tipografía Playfair Display */
 .countdown-intro { 
   margin: 0 0 8px; 
   font-size: 14px; 
@@ -235,7 +237,7 @@ body {
 }
 .countdown-area { width: 100%; }
 .countdown { 
-  background: var(--olive-primary); 
+  background: var(--olive-theme); 
   width: 100%; 
   min-height: 130px; 
   padding: 18px 4% 18px; 
@@ -245,9 +247,9 @@ body {
   color: white; 
 }
 .count-unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.count-number { font: 400 clamp(28px, 5vw, 50px)/1 "Cormorant Garamond", Georgia, serif; font-variant-numeric: tabular-nums; }
-.count-label { font-size: clamp(10px, 1.3vw, 13px); letter-spacing: 1.5px; }
-.wedding-day { background: var(--olive-primary); color: white; margin: 0; padding: 30px 12px; font: 400 clamp(22px, 4.5vw, 38px) "Cormorant Garamond", Georgia, serif; }
+.count-number { font: 400 clamp(28px, 5vw, 50px)/1 "Playfair Display", Georgia, serif; font-variant-numeric: tabular-nums; }
+.count-label { font-size: clamp(10px, 1.3vw, 13px); letter-spacing: 1.5px; font-family: "Mundial Narrow Variable Light", Montserrat, sans-serif; }
+.wedding-day { background: var(--olive-theme); color: white; margin: 0; padding: 30px 12px; font: 400 clamp(22px, 4.5vw, 38px) "Playfair Display", Georgia, serif; }
 
 /* Botón flotante de Música */
 .music-btn {
