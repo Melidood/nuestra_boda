@@ -12,10 +12,21 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="invitation">
-    <div class="floral floral-left" aria-hidden="true"><img src="assets/flores-izquierda.svg" alt=""></div>
-    <div class="floral floral-right" aria-hidden="true"><img src="assets/flores-derecha.svg" alt=""></div>
 
+  <!-- Reproductor de audio de fondo (opcional) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/musica-boda.mp3" type="audio/mpeg">
+  </audio>
+  <button id="music-toggle" class="music-btn" aria-label="Reproducir/Pausar música">
+    <span id="music-icon">🎵</span>
+  </button>
+
+  <main class="invitation">
+    <!-- Flores de las esquinas -->
+    <div class="floral floral-left" aria-hidden="true"><img src="assets/flores-izquierda.jpg" alt=""></div>
+    <div class="floral floral-right" aria-hidden="true"><img src="assets/flores-derecha.jpg" alt=""></div>
+
+    <!-- Sobre tridimensional con la foto y el logo exacto -->
     <section class="hero-envelope" aria-label="Fotografía de Ana y Julio">
       <div class="envelope">
         <div class="envelope-frame"></div>
@@ -23,34 +34,44 @@
         <div class="flap flap-left"></div>
         <div class="flap flap-right"></div>
         <div class="front-flap"></div>
-        <div class="monogram" aria-label="Iniciales A y J">
-          <span class="monogram-letters" id="monogram">A&amp;J</span>
-          <svg class="monogram-botanical" viewBox="0 0 110 36" aria-hidden="true">
-            <path d="M4 5 Q26 29 61 24 Q37 37 13 13 M12 8 Q28 25 51 23 M65 25 C66 9 81 7 87 18 C95 7 106 15 103 25 C96 34 75 34 65 25Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <path d="M84 13 L84 30 M75 19 L93 25 M77 28 L91 17" fill="none" stroke="currentColor" stroke-width="1.2"/>
-          </svg>
+        
+        <!-- Emblema circular con el archivo ayj.svg exactamente adjuntado -->
+        <div class="monogram-container" aria-label="Logo A y J">
+          <img src="assets/ayj.svg" id="monogram-img" alt="Logo Ana & Julio" class="monogram-svg">
         </div>
       </div>
     </section>
 
+    <!-- Detalles de la invitación -->
     <section class="details">
       <h1 class="couple-names"><span id="bride-name">Ana</span> <span class="ampersand">&amp;</span> <span id="groom-name">Julio</span></h1>
       <div class="subtitle"><span></span><p>NUESTRA BODA</p><span></span></div>
       <p class="date-pill" id="date-label">19 | DICIEMBRE | 26</p>
       <p class="venue"><span id="venue-name">PARROQUIA DE SANTIAGO APÓSTOL</span><span id="venue-city">TARANDACUAO, GTO.</span></p>
+      
+      <!-- Botón de Confirmación de Asistencia (RSVP) -->
+      <div class="rsvp-container">
+        <a id="rsvp-button" href="#" target="_blank" rel="noopener noreferrer" class="rsvp-btn">
+          CONFIRMAR ASISTENCIA
+        </a>
+      </div>
+
       <p class="save-date">RESERVA LA FECHA</p>
     </section>
 
+    <!-- Cuenta regresiva con Días, Horas, Minutos y Segundos -->
     <section class="countdown-area" aria-label="Cuenta regresiva para la boda">
       <p class="countdown-intro" id="countdown-intro">FALTAN:</p>
       <div class="countdown" id="countdown">
         <div class="count-unit"><span class="count-number" id="days">--</span><span class="count-label">DÍAS</span></div>
         <div class="count-unit"><span class="count-number" id="hours">--</span><span class="count-label">HORAS</span></div>
         <div class="count-unit"><span class="count-number" id="minutes">--</span><span class="count-label">MINUTOS</span></div>
+        <div class="count-unit"><span class="count-number" id="seconds">--</span><span class="count-label">SEGUNDOS</span></div>
       </div>
       <p class="wedding-day" id="wedding-day" hidden>¡HOY ES EL GRAN DÍA!</p>
     </section>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
