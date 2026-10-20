@@ -5,11 +5,10 @@ const WEDDING_CONFIG = {
   date: "2026-12-19",
   venue: "PARROQUIA DE SANTIAGO APÓSTOL",
   city: "TARANDACUAO, GTO.",
-  photo: "assets/foto-pareja-placeholder.png",
+  photo: "foto-pareja-placeholder.png",
   timezone: "America/Mexico_City",
   weddingDayMessage: "¡HOY ES EL GRAN DÍA!",
-  // Configuración de WhatsApp para confirmaciones
-  whatsappNumber: "524423971708", // Reemplaza con tu número a 10 dígitos con clave de país
+  whatsappNumber: "524411225238", 
   whatsappMessage: "¡Hola! Me gustaría confirmar mi asistencia a la boda de Ana y Julio."
 };
 
@@ -21,7 +20,7 @@ document.getElementById("venue-city").textContent = WEDDING_CONFIG.city;
 document.getElementById("couple-photo").src = WEDDING_CONFIG.photo;
 document.getElementById("wedding-day").textContent = WEDDING_CONFIG.weddingDayMessage;
 
-// Enlace de WhatsApp para el botón de RSVP
+// Enlace de WhatsApp para confirmación
 const rsvpBtn = document.getElementById("rsvp-button");
 rsvpBtn.href = `https://wa.me/${WEDDING_CONFIG.whatsappNumber}?text=${encodeURIComponent(WEDDING_CONFIG.whatsappMessage)}`;
 
@@ -47,7 +46,7 @@ function getTargetTimestamp(dateString, timeZone) {
 const target = getTargetTimestamp(WEDDING_CONFIG.date, WEDDING_CONFIG.timezone);
 const $ = id => document.getElementById(id);
 
-// Cuenta regresiva con segundos
+// Cuenta regresiva con actualización en segundos
 function updateCountdown() {
   const remaining = target - Date.now();
   if (remaining <= 0) {
