@@ -2,9 +2,13 @@
   --white: #ffffff;
   --gold: #d3b486;
   --gold-dark: #c6a574;
-  --sage: #a3a38f;
-  --gray: #858585;
-  --pink: #ebdcdd;
+  /* Nueva paleta: Verde oliva cálido para nombres y barra inferior */
+  --olive-primary: #8C8A6B; 
+  --olive-dark: #767554;
+  --gray: #757575;
+  --gray-light: #9E9E9E;
+  /* Nuevo fondo para la cápsula de la fecha (champán / amarillo suave) */
+  --champagne-pill: #F3EAE1;
   --page-width: 928px;
 }
 
@@ -58,9 +62,7 @@ body {
 .floral-left { left: 0; }
 .floral-right { right: 0; transform: scaleX(-1); }
 
-/* ==========================================================
-   ESTRUCTURA DEL SOBRE VECTORIAL (sobre.svg)
-   ========================================================== */
+/* Estructura del Sobre Vectorial */
 .hero-envelope { 
   width: 85%; 
   max-width: 520px; 
@@ -74,7 +76,6 @@ body {
   width: 100%; 
 }
 
-/* Imagen vectorial del sobre */
 .real-envelope-bg {
   width: 100%;
   height: auto;
@@ -83,7 +84,6 @@ body {
   z-index: 2;
 }
 
-/* Solapa superior trasera */
 .envelope-top-flap {
   position: absolute;
   top: 0;
@@ -95,7 +95,6 @@ body {
   z-index: 1;
 }
 
-/* Ventana donde se acomoda la foto de los novios */
 .photo-window { 
   position: absolute; 
   left: 12%; 
@@ -116,7 +115,6 @@ body {
   object-position: center 30%; 
 }
 
-/* Logotipo exacto A&J sobre el sobre */
 .monogram-container {
   position: absolute;
   z-index: 4;
@@ -136,18 +134,17 @@ body {
   object-fit: contain;
 }
 
-/* ==========================================================
-   TEXTOS Y SECCIONES INFERIORES
-   ========================================================== */
+/* Textos y Secciones inferiores */
 .details { 
   padding: 15px 5% 0; 
   position: relative; 
   z-index: 3;
 }
 
+/* Nombres de los novios con el nuevo tono oliva */
 .couple-names { 
   margin: 5px 0 0 0; 
-  color: var(--sage); 
+  color: var(--olive-primary); 
   font-family: "Great Vibes", cursive; 
   font-size: clamp(48px, 8.5vw, 92px); 
   font-weight: 400; 
@@ -174,18 +171,20 @@ body {
 .subtitle span { 
   width: 45px; 
   height: 1px; 
-  background: #aaa; 
+  background: #ccc; 
 }
 
+/* Cápsula de Fecha con fondo champán suave */
 .date-pill { 
   display: inline-block; 
   margin: 0 auto 15px; 
   padding: 8px 30px; 
   border-radius: 100px; 
-  background: var(--pink); 
-  color: var(--gray); 
+  background: var(--champagne-pill); 
+  color: var(--olive-primary); 
   font-size: clamp(18px, 3.2vw, 32px); 
-  font-weight: 400; 
+  font-weight: 500; 
+  letter-spacing: 1.5px;
   line-height: 1.3; 
   white-space: nowrap; 
 }
@@ -203,7 +202,7 @@ body {
 .rsvp-container { margin: 15px 0; }
 .rsvp-btn {
   display: inline-block;
-  background-color: var(--sage);
+  background-color: var(--olive-primary);
   color: var(--white);
   padding: 12px 28px;
   border-radius: 50px;
@@ -216,7 +215,7 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .rsvp-btn:hover {
-  background-color: var(--gold-dark);
+  background-color: var(--olive-dark);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
@@ -228,7 +227,7 @@ body {
   white-space: nowrap; 
 }
 
-/* Cuenta Regresiva */
+/* Cuenta Regresiva con el nuevo tono verde oliva elegante */
 .countdown-intro { 
   margin: 0 0 8px; 
   font-size: 14px; 
@@ -236,7 +235,7 @@ body {
 }
 .countdown-area { width: 100%; }
 .countdown { 
-  background: var(--sage); 
+  background: var(--olive-primary); 
   width: 100%; 
   min-height: 130px; 
   padding: 18px 4% 18px; 
@@ -248,7 +247,7 @@ body {
 .count-unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .count-number { font: 400 clamp(28px, 5vw, 50px)/1 "Cormorant Garamond", Georgia, serif; font-variant-numeric: tabular-nums; }
 .count-label { font-size: clamp(10px, 1.3vw, 13px); letter-spacing: 1.5px; }
-.wedding-day { background: var(--sage); color: white; margin: 0; padding: 30px 12px; font: 400 clamp(22px, 4.5vw, 38px) "Cormorant Garamond", Georgia, serif; }
+.wedding-day { background: var(--olive-primary); color: white; margin: 0; padding: 30px 12px; font: 400 clamp(22px, 4.5vw, 38px) "Cormorant Garamond", Georgia, serif; }
 
 /* Botón flotante de Música */
 .music-btn {
