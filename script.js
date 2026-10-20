@@ -3,18 +3,16 @@ const WEDDING_CONFIG = {
   bride: "Ana",
   groom: "Julio",
   date: "2026-12-19",
-  venue: "PARROQUIA DE SANTIAGO APÓSTOL",
   city: "TARANDACUAO, GTO.",
   timezone: "America/Mexico_City",
   weddingDayMessage: "¡HOY ES EL GRAN DÍA!"
 };
 
-// Carga de textos
-document.getElementById("bride-name").textContent = WEDDING_CONFIG.bride;
-document.getElementById("groom-name").textContent = WEDDING_CONFIG.groom;
-document.getElementById("venue-name").textContent = WEDDING_CONFIG.venue;
-document.getElementById("venue-city").textContent = WEDDING_CONFIG.city;
-document.getElementById("wedding-day").textContent = WEDDING_CONFIG.weddingDayMessage;
+// Carga segura de textos si existen los elementos
+if (document.getElementById("bride-name")) document.getElementById("bride-name").textContent = WEDDING_CONFIG.bride;
+if (document.getElementById("groom-name")) document.getElementById("groom-name").textContent = WEDDING_CONFIG.groom;
+if (document.getElementById("venue-city")) document.getElementById("venue-city").textContent = WEDDING_CONFIG.city;
+if (document.getElementById("wedding-day")) document.getElementById("wedding-day").textContent = WEDDING_CONFIG.weddingDayMessage;
 
 // Lógica de cálculo en zona horaria exacta
 function getTargetTimestamp(dateString, timeZone) {
