@@ -26,7 +26,6 @@ body {
   overflow-x: hidden; 
 }
 
-/* Contenedor principal */
 .invitation { 
   position: relative; 
   width: 100%; 
@@ -38,7 +37,7 @@ body {
   isolation: isolate; 
 }
 
-/* Esquinas florales proporcionadas y sin fondo negro */
+/* Esquinas florales */
 .floral { 
   position: absolute; 
   top: 0; 
@@ -56,50 +55,57 @@ body {
   mix-blend-mode: multiply; 
 }
 
-.floral-left { 
-  left: 0; 
-}
-
-.floral-right { 
-  right: 0; 
-  transform: scaleX(-1); 
-}
+.floral-left { left: 0; }
+.floral-right { right: 0; transform: scaleX(-1); }
 
 /* ==========================================================
-   ESTRUCTURA EXACTA DEL SOBRE (Proporción idéntica a la ref)
+   ESTRUCTURA CON LA IMAGEN REAL DEL SOBRE (sobre.jpg)
    ========================================================== */
 .hero-envelope { 
-  width: 82%; 
-  max-width: 540px; 
+  width: 85%; 
+  max-width: 520px; 
   margin: 0 auto; 
   position: relative; 
   z-index: 2;
 }
 
-.envelope { 
+.envelope-image-container { 
   position: relative; 
   width: 100%; 
-  aspect-ratio: 540 / 580; /* Proporción exacta para que no se estire */
 }
 
-/* Marco trasero del sobre */
-.envelope-frame { 
-  position: absolute; 
-  inset: 0; 
-  background: var(--gold-dark); 
-  clip-path: polygon(50% 0%, 100% 36%, 100% 100%, 0% 100%, 0% 36%); 
+/* Imagen real del sobre como base */
+.real-envelope-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
 }
 
-/* Ventana donde va la fotografía de los novios */
+/* Solapa superior del sobre que complementa la imagen */
+.envelope-top-flap {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 35%;
+  background-color: #d1b181;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  z-index: 1;
+}
+
+/* Ventana donde se acomoda la foto de los novios */
 .photo-window { 
   position: absolute; 
-  left: 3%; 
-  right: 3%; 
-  top: 3%; 
-  height: 68%; 
+  left: 12%; 
+  right: 12%; 
+  top: 4%; 
+  height: 52%; 
   overflow: hidden; 
-  clip-path: polygon(50% 0%, 57% 0%, 100% 37%, 100% 43%, 50% 100%, 0% 43%, 0% 37%); 
+  clip-path: polygon(50% 0%, 100% 38%, 100% 100%, 0% 100%, 0% 38%); 
   background: #e8ddce; 
+  z-index: 3;
 }
 
 .photo-window img { 
@@ -110,47 +116,14 @@ body {
   object-position: center 30%; 
 }
 
-/* Solapas laterales en V del sobre */
-.flap { 
-  position: absolute; 
-  top: 38%; 
-  width: 51%; 
-  height: 62%; 
-  background: #d4b78b; 
-  z-index: 2; 
-}
-
-.flap-left { 
-  left: 0; 
-  clip-path: polygon(0 0, 100% 50%, 0 100%); 
-}
-
-.flap-right { 
-  right: 0; 
-  clip-path: polygon(100% 0, 0 50%, 100% 100%); 
-}
-
-/* Solapa frontal inferior con sombra de profundidad */
-.front-flap { 
-  position: absolute; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  height: 35%; 
-  background: linear-gradient(160deg, #d7bb91, #cfb084); 
-  clip-path: polygon(0 100%, 50% 15%, 100% 100%); 
-  z-index: 3; 
-  filter: drop-shadow(0 -3px 4px rgba(96, 73, 44, 0.2)); 
-}
-
-/* Contenedor exacto del logotipo ayj.svg */
+/* Logotipo exacto A&J sobre la solapa inferior del sobre real */
 .monogram-container {
   position: absolute;
   z-index: 4;
   left: 50%;
-  bottom: 2%;
+  bottom: 12%;
   transform: translateX(-50%);
-  width: 22%;
+  width: 20%;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -167,13 +140,13 @@ body {
    TEXTOS Y SECCIONES INFERIORES
    ========================================================== */
 .details { 
-  padding: 20px 5% 0; 
+  padding: 15px 5% 0; 
   position: relative; 
   z-index: 3;
 }
 
 .couple-names { 
-  margin: 10px 0 0 0; 
+  margin: 5px 0 0 0; 
   color: var(--sage); 
   font-family: "Great Vibes", cursive; 
   font-size: clamp(48px, 8.5vw, 92px); 
@@ -181,16 +154,14 @@ body {
   line-height: 1.1; 
 }
 
-.ampersand { 
-  font-size: 0.72em; 
-}
+.ampersand { font-size: 0.72em; }
 
 .subtitle { 
   display: flex; 
   justify-content: center; 
   align-items: center; 
   gap: 30px; 
-  margin: 5px auto 25px; 
+  margin: 5px auto 20px; 
   color: var(--gray); 
 }
 
@@ -229,10 +200,7 @@ body {
 }
 
 /* Botón de Confirmación RSVP */
-.rsvp-container { 
-  margin: 20px 0; 
-}
-
+.rsvp-container { margin: 15px 0; }
 .rsvp-btn {
   display: inline-block;
   background-color: var(--sage);
@@ -247,7 +215,6 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-
 .rsvp-btn:hover {
   background-color: var(--gold-dark);
   transform: translateY(-2px);
@@ -255,23 +222,19 @@ body {
 }
 
 .save-date { 
-  margin: 20px 0 40px; 
+  margin: 15px 0 35px; 
   font: 400 clamp(32px, 6.5vw, 56px)/1.15 "Cormorant Garamond", Georgia, serif; 
   color: var(--gray); 
   white-space: nowrap; 
 }
 
-/* Cuenta Regresiva de 4 Columnas (Días, Horas, Minutos, Segundos) */
+/* Cuenta Regresiva */
 .countdown-intro { 
   margin: 0 0 8px; 
   font-size: 14px; 
   letter-spacing: 1.5px;
 }
-
-.countdown-area { 
-  width: 100%; 
-}
-
+.countdown-area { width: 100%; }
 .countdown { 
   background: var(--sage); 
   width: 100%; 
@@ -282,33 +245,12 @@ body {
   gap: 8px; 
   color: white; 
 }
+.count-unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.count-number { font: 400 clamp(28px, 5vw, 50px)/1 "Cormorant Garamond", Georgia, serif; font-variant-numeric: tabular-nums; }
+.count-label { font-size: clamp(10px, 1.3vw, 13px); letter-spacing: 1.5px; }
+.wedding-day { background: var(--sage); color: white; margin: 0; padding: 30px 12px; font: 400 clamp(22px, 4.5vw, 38px) "Cormorant Garamond", Georgia, serif; }
 
-.count-unit { 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  gap: 4px; 
-}
-
-.count-number { 
-  font: 400 clamp(28px, 5vw, 50px)/1 "Cormorant Garamond", Georgia, serif; 
-  font-variant-numeric: tabular-nums; 
-}
-
-.count-label { 
-  font-size: clamp(10px, 1.3vw, 13px); 
-  letter-spacing: 1.5px; 
-}
-
-.wedding-day { 
-  background: var(--sage); 
-  color: white; 
-  margin: 0; 
-  padding: 30px 12px; 
-  font: 400 clamp(22px, 4.5vw, 38px) "Cormorant Garamond", Georgia, serif; 
-}
-
-/* Botón flotante de Música */
+/* Botón de Música */
 .music-btn {
   position: fixed;
   bottom: 20px;
@@ -328,14 +270,11 @@ body {
   font-size: 20px;
 }
 
-[hidden] { 
-  display: none !important; 
-}
+[hidden] { display: none !important; }
 
-/* Ajustes responsivos para móviles pequeños */
 @media (max-width: 600px) {
   .invitation { padding-top: 15px; }
   .floral { width: 130px; }
-  .hero-envelope { width: 90%; }
+  .hero-envelope { width: 92%; }
   .countdown { padding: 15px 2% 15px; gap: 4px; }
 }
