@@ -9,7 +9,7 @@ const WEDDING_CONFIG = {
   timezone: "America/Mexico_City",
   weddingDayMessage: "¡HOY ES EL GRAN DÍA!",
   // Configuración de WhatsApp para confirmaciones
-  whatsappNumber: "524411225238", // Reemplaza con tu número a 10 dígitos con clave de país
+  whatsappNumber: "524423971708", // Reemplaza con tu número a 10 dígitos con clave de país
   whatsappMessage: "¡Hola! Me gustaría confirmar mi asistencia a la boda de Ana y Julio."
 };
 
