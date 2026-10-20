@@ -1,28 +1,32 @@
-/* Edita estos valores para personalizar la invitación. */
+/* Configuración personalizable */
 const WEDDING_CONFIG = {
   bride: "Ana",
   groom: "Julio",
-  monogram: "A&J",
-  // Fecha local de la boda, sin hora inventada. La cuenta termina al iniciar ese día.
   date: "2026-12-19",
   venue: "PARROQUIA DE SANTIAGO APÓSTOL",
   city: "TARANDACUAO, GTO.",
   photo: "assets/foto-pareja-placeholder.png",
   timezone: "America/Mexico_City",
-  weddingDayMessage: "¡HOY ES EL GRAN DÍA!"
+  weddingDayMessage: "¡HOY ES EL GRAN DÍA!",
+  // Configuración de WhatsApp para confirmaciones
+  whatsappNumber: "524411225238", // Reemplaza con tu número a 10 dígitos con clave de país
+  whatsappMessage: "¡Hola! Me gustaría confirmar mi asistencia a la boda de Ana y Julio."
 };
 
+// Carga de textos
 document.getElementById("bride-name").textContent = WEDDING_CONFIG.bride;
 document.getElementById("groom-name").textContent = WEDDING_CONFIG.groom;
-document.getElementById("monogram").textContent = WEDDING_CONFIG.monogram;
 document.getElementById("venue-name").textContent = WEDDING_CONFIG.venue;
 document.getElementById("venue-city").textContent = WEDDING_CONFIG.city;
 document.getElementById("couple-photo").src = WEDDING_CONFIG.photo;
 document.getElementById("wedding-day").textContent = WEDDING_CONFIG.weddingDayMessage;
 
+// Enlace de WhatsApp para el botón de RSVP
+const rsvpBtn = document.getElementById("rsvp-button");
+rsvpBtn.href = `https://wa.me/${WEDDING_CONFIG.whatsappNumber}?text=${encodeURIComponent(WEDDING_CONFIG.whatsappMessage)}`;
+
+// Lógica de Zona Horaria
 function getTargetTimestamp(dateString, timeZone) {
-  // Al no haberse proporcionado hora, el objetivo es el inicio del día en la zona indicada.
-  // Convierte la medianoche local a UTC usando Intl para contemplar la zona horaria.
   const [year, month, day] = dateString.split("-").map(Number);
   const desired = { year, month, day, hour: 0, minute: 0, second: 0 };
   let guess = Date.UTC(year, month - 1, day);
@@ -43,6 +47,7 @@ function getTargetTimestamp(dateString, timeZone) {
 const target = getTargetTimestamp(WEDDING_CONFIG.date, WEDDING_CONFIG.timezone);
 const $ = id => document.getElementById(id);
 
+// Cuenta regresiva con segundos
 function updateCountdown() {
   const remaining = target - Date.now();
   if (remaining <= 0) {
@@ -51,10 +56,33 @@ function updateCountdown() {
     $("wedding-day").hidden = false;
     return;
   }
-  const totalMinutes = Math.floor(remaining / 60000);
-  $("days").textContent = Math.floor(totalMinutes / 1440).toLocaleString("es-MX");
-  $("hours").textContent = String(Math.floor((totalMinutes % 1440) / 60)).padStart(2, "0");
-  $("minutes").textContent = String(totalMinutes % 60).padStart(2, "0");
+  
+  const totalSeconds = Math.floor(remaining / 1000);
+  const days = Math.floor(totalSeconds / (3600 * 24));
+  const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = Math.floor(totalSeconds % 60);
+
+  $("days").textContent = days.toLocaleString("es-MX");
+  $("hours").textContent = String(hours).padStart(2, "0");
+  $("minutes").textContent = String(minutes).padStart(2, "0");
+  $("seconds").textContent = String(seconds).padStart(2, "0");
 }
+
 updateCountdown();
 window.setInterval(updateCountdown, 1000);
+
+// Control de Música de Fondo
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("music-toggle");
+const musicIcon = document.getElementById("music-icon");
+
+musicBtn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    musicIcon.textContent = "🔊";
+  } else {
+    music.pause();
+    musicIcon.textContent = "🎵";
+  }
+});
