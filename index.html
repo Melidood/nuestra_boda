@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Invitación de boda de Ana y Julio. 19 de diciembre de 2026, Tarandacuao, Guanajuato.">
+  <title>Ana &amp; Julio | Nuestra boda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Great+Vibes&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="invitation">
+    <div class="floral floral-left" aria-hidden="true"><img src="assets/flores-izquierda.svg" alt=""></div>
+    <div class="floral floral-right" aria-hidden="true"><img src="assets/flores-derecha.svg" alt=""></div>
+
+    <section class="hero-envelope" aria-label="Fotografía de Ana y Julio">
+      <div class="envelope">
+        <div class="envelope-frame"></div>
+        <div class="photo-window"><img id="couple-photo" src="assets/foto-pareja-placeholder.png" alt="Fotografía de Ana y Julio"></div>
+        <div class="flap flap-left"></div>
+        <div class="flap flap-right"></div>
+        <div class="front-flap"></div>
+        <div class="monogram" aria-label="Iniciales A y J">
+          <span class="monogram-letters" id="monogram">A&amp;J</span>
+          <svg class="monogram-botanical" viewBox="0 0 110 36" aria-hidden="true">
+            <path d="M4 5 Q26 29 61 24 Q37 37 13 13 M12 8 Q28 25 51 23 M65 25 C66 9 81 7 87 18 C95 7 106 15 103 25 C96 34 75 34 65 25Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M84 13 L84 30 M75 19 L93 25 M77 28 L91 17" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="details">
+      <h1 class="couple-names"><span id="bride-name">Ana</span> <span class="ampersand">&amp;</span> <span id="groom-name">Julio</span></h1>
+      <div class="subtitle"><span></span><p>NUESTRA BODA</p><span></span></div>
+      <p class="date-pill" id="date-label">19 | DICIEMBRE | 26</p>
+      <p class="venue"><span id="venue-name">PARROQUIA DE SANTIAGO APÓSTOL</span><span id="venue-city">TARANDACUAO, GTO.</span></p>
+      <p class="save-date">RESERVA LA FECHA</p>
+    </section>
+
+    <section class="countdown-area" aria-label="Cuenta regresiva para la boda">
+      <p class="countdown-intro" id="countdown-intro">FALTAN:</p>
+      <div class="countdown" id="countdown">
+        <div class="count-unit"><span class="count-number" id="days">--</span><span class="count-label">DÍAS</span></div>
+        <div class="count-unit"><span class="count-number" id="hours">--</span><span class="count-label">HORAS</span></div>
+        <div class="count-unit"><span class="count-number" id="minutes">--</span><span class="count-label">MINUTOS</span></div>
+      </div>
+      <p class="wedding-day" id="wedding-day" hidden>¡HOY ES EL GRAN DÍA!</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
