@@ -13,11 +13,24 @@ body { margin: 0; color: var(--gray); background: var(--white); font-family: "Mo
 
 .invitation { position: relative; width: 100%; max-width: var(--page-width); min-height: 100vh; margin: 0 auto; padding-top: 4.1%; text-align: center; isolation: isolate; }
 
-/* Corrección para eliminar fondo negro de las flores */
-.floral { position: absolute; top: -2px; width: 43%; z-index: -1; pointer-events: none; mix-blend-mode: multiply; }
-.floral img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
-.floral-left { left: -1.5%; }
-.floral-right { right: -1.5%; transform: scaleX(-1); }
+/* Corrección y control de tamaño para las flores vectoriales en las esquinas */
+.floral { 
+  position: absolute !important; 
+  top: 0 !important; 
+  width: 200px !important; 
+  max-width: 35vw !important; 
+  z-index: 1 !important; 
+  pointer-events: none !important; 
+  mix-blend-mode: multiply; 
+}
+.floral img { 
+  display: block !important; 
+  width: 100% !important; 
+  height: auto !important; 
+  mix-blend-mode: multiply; 
+}
+.floral-left { left: 0 !important; }
+.floral-right { right: 0 !important; transform: scaleX(-1); }
 
 /* Estructura del Sobre */
 .hero-envelope { width: 84%; max-width: 780px; margin: 0 auto; position: relative; }
@@ -116,7 +129,7 @@ body { margin: 0; color: var(--gray); background: var(--white); font-family: "Mo
 
 @media (max-width: 600px) {
   .invitation { padding-top: 5%; }
-  .floral { width: 48%; }
+  .floral { width: 130px !important; }
   .hero-envelope { width: 88%; }
   .details { padding-top: 7%; }
   .subtitle { gap: 17px; margin-bottom: 27px; }
