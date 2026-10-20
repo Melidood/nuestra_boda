@@ -9,35 +9,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Great+Vibes&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-  <!-- Reproductor de audio de fondo (opcional) -->
+  <!-- Reproductor de audio de fondo -->
   <audio id="bg-music" loop preload="auto">
-    <source src="assets/musica-boda.mp3" type="audio/mpeg">
+    <source src="musica-boda.mp3" type="audio/mpeg">
   </audio>
   <button id="music-toggle" class="music-btn" aria-label="Reproducir/Pausar música">
     <span id="music-icon">🎵</span>
   </button>
 
   <main class="invitation">
-    <!-- Flores de las esquinas -->
-    <div class="floral floral-left" aria-hidden="true"><img src="assets/flores-izquierda.jpg" alt=""></div>
-    <div class="floral floral-right" aria-hidden="true"><img src="assets/flores-derecha.jpg" alt=""></div>
+    <!-- Flores de las esquinas (archivos sueltos en raíz) -->
+    <div class="floral floral-left" aria-hidden="true"><img src="flores-izquierda.svg" alt=""></div>
+    <div class="floral floral-right" aria-hidden="true"><img src="flores-derecha.svg" alt=""></div>
 
     <!-- Sobre tridimensional con la foto y el logo exacto -->
     <section class="hero-envelope" aria-label="Fotografía de Ana y Julio">
       <div class="envelope">
         <div class="envelope-frame"></div>
-        <div class="photo-window"><img id="couple-photo" src="assets/foto-pareja-placeholder.png" alt="Fotografía de Ana y Julio"></div>
+        <div class="photo-window">
+          <img id="couple-photo" src="foto-pareja-placeholder.png" alt="Fotografía de Ana y Julio">
+        </div>
         <div class="flap flap-left"></div>
         <div class="flap flap-right"></div>
         <div class="front-flap"></div>
         
-        <!-- Emblema circular con el archivo ayj.svg exactamente adjuntado -->
+        <!-- Emblema circular con el archivo ayj.svg -->
         <div class="monogram-container" aria-label="Logo A y J">
-          <img src="assets/ayj.svg" id="monogram-img" alt="Logo Ana & Julio" class="monogram-svg">
+          <img src="ayj.svg" id="monogram-img" alt="Logo Ana & Julio" class="monogram-svg">
         </div>
       </div>
     </section>
