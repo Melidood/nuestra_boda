@@ -30,8 +30,8 @@
     <div class="floral floral-left" aria-hidden="true"><img src="flores-izquierda.svg" alt=""></div>
     <div class="floral floral-right" aria-hidden="true"><img src="flores-derecha.svg" alt=""></div>
 
-    <!-- Sobre Vectorial (Sin la ventana de fotografía) -->
-    <section class="hero-envelope" aria-label="Sobre de Invitación">
+    <!-- Sobre Vectorial con Animación interactiva -->
+    <section class="hero-envelope" id="hero-envelope" aria-label="Sobre de Invitación">
       <div class="envelope-image-container">
         
         <!-- Imagen del sobre vectorial (sobre.svg) -->
@@ -68,7 +68,7 @@
     </section>
   </main>
 
-  <!-- Script incrustado directamente para garantizar el funcionamiento -->
+  <!-- Script incrustado para Autoplay y Animación del Sobre -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const WEDDING_CONFIG = {
@@ -106,20 +106,54 @@
       updateCountdown();
       setInterval(updateCountdown, 1000);
 
-      // Control del reproductor de música
+      // Reproducción automática de Música con desbloqueo al interactuar
       const music = document.getElementById("bg-music");
       const musicBtn = document.getElementById("music-toggle");
       const musicIcon = document.getElementById("music-icon");
+      let musicStarted = false;
+
+      function playMusic() {
+        if (!musicStarted && music) {
+          music.play().then(() => {
+            musicStarted = true;
+            if (musicIcon) musicIcon.textContent = "🔊";
+          }).catch(err => {
+            console.log("Autoplay bloqueado por el navegador hasta el primer clic.");
+          });
+        }
+      }
+
+      // Intentar reproducir al cargar la página
+      playMusic();
+
+      // Desbloquear música al primer clic/toque en la pantalla
+      document.body.addEventListener("click", function () {
+        playMusic();
+      }, { once: true });
 
       if (musicBtn && music) {
-        musicBtn.addEventListener("click", function () {
+        musicBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
           if (music.paused) {
             music.play();
+            musicStarted = true;
             if (musicIcon) musicIcon.textContent = "🔊";
           } else {
             music.pause();
             if (musicIcon) musicIcon.textContent = "🎵";
           }
+        });
+      }
+
+      // Animación de interactividad en el sobre
+      const envelope = document.getElementById("hero-envelope");
+      if (envelope) {
+        envelope.addEventListener("click", function () {
+          envelope.classList.add("envelope-open");
+          playMusic();
+          setTimeout(() => {
+            envelope.classList.remove("envelope-open");
+          }, 600);
         });
       }
     });
