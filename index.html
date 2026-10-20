@@ -68,6 +68,61 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <!-- Script incrustado directamente para garantizar el funcionamiento -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const WEDDING_CONFIG = {
+        bride: "Ana",
+        groom: "Julio",
+        date: "2026-12-19T00:00:00",
+        city: "TARANDACUAO, GTO.",
+        weddingDayMessage: "¡HOY ES EL GRAN DÍA!"
+      };
+
+      const targetDate = new Date(WEDDING_CONFIG.date).getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const remaining = targetDate - now;
+
+        if (remaining <= 0) {
+          if (document.getElementById("countdown")) document.getElementById("countdown").hidden = true;
+          if (document.getElementById("countdown-intro")) document.getElementById("countdown-intro").hidden = true;
+          if (document.getElementById("wedding-day")) document.getElementById("wedding-day").hidden = false;
+          return;
+        }
+
+        const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+        if (document.getElementById("days")) document.getElementById("days").textContent = days;
+        if (document.getElementById("hours")) document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+        if (document.getElementById("minutes")) document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+        if (document.getElementById("seconds")) document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Control del reproductor de música
+      const music = document.getElementById("bg-music");
+      const musicBtn = document.getElementById("music-toggle");
+      const musicIcon = document.getElementById("music-icon");
+
+      if (musicBtn && music) {
+        musicBtn.addEventListener("click", function () {
+          if (music.paused) {
+            music.play();
+            if (musicIcon) musicIcon.textContent = "🔊";
+          } else {
+            music.pause();
+            if (musicIcon) musicIcon.textContent = "🎵";
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
