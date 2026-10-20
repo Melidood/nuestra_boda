@@ -1,68 +1,60 @@
-/**
- * Configuración global de la Invitación
- * Modifica estos valores para personalizar los datos de la boda.
- */
+/* Edita estos valores para personalizar la invitación. */
 const WEDDING_CONFIG = {
-  brideName: "Ana",
-  groomName: "Julio",
-  initials: "A & J",
-  targetDateISO: "2026-12-19T00:00:00",
-  timeZone: "America/Mexico_City",
-  displayDateText: "19 | DICIEMBRE | 26",
-  venueName: "PARROQUIA DE SANTIAGO APÓSTOL",
-  venueCity: "TARANDACUAO, GTO.",
-  finishedMessage: "¡HOY ES EL GRAN DÍA!"
+  bride: "Ana",
+  groom: "Julio",
+  monogram: "A&J",
+  // Fecha local de la boda, sin hora inventada. La cuenta termina al iniciar ese día.
+  date: "2026-12-19",
+  venue: "PARROQUIA DE SANTIAGO APÓSTOL",
+  city: "TARANDACUAO, GTO.",
+  photo: "assets/foto-pareja-placeholder.png",
+  timezone: "America/Mexico_City",
+  weddingDayMessage: "¡HOY ES EL GRAN DÍA!"
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  initializeInvitationData();
-  startCountdown();
-});
+document.getElementById("bride-name").textContent = WEDDING_CONFIG.bride;
+document.getElementById("groom-name").textContent = WEDDING_CONFIG.groom;
+document.getElementById("monogram").textContent = WEDDING_CONFIG.monogram;
+document.getElementById("venue-name").textContent = WEDDING_CONFIG.venue;
+document.getElementById("venue-city").textContent = WEDDING_CONFIG.city;
+document.getElementById("couple-photo").src = WEDDING_CONFIG.photo;
+document.getElementById("wedding-day").textContent = WEDDING_CONFIG.weddingDayMessage;
 
-function initializeInvitationData() {
-  document.getElementById("couple-names-text").textContent = 
-    `${WEDDING_CONFIG.brideName} & ${WEDDING_CONFIG.groomName}`;
-  document.getElementById("emblem-initials").textContent = WEDDING_CONFIG.initials;
-  document.getElementById("display-date").textContent = WEDDING_CONFIG.displayDateText;
-  document.getElementById("venue-name").textContent = WEDDING_CONFIG.venueName;
-  document.getElementById("venue-city").textContent = WEDDING_CONFIG.venueCity;
-}
-
-function startCountdown() {
-  const daysEl = document.getElementById("cd-days");
-  const hoursEl = document.getElementById("cd-hours");
-  const minutesEl = document.getElementById("cd-minutes");
-  const bannerEl = document.getElementById("countdown-banner");
-  const finishedMsgEl = document.getElementById("countdown-finished-message");
-
-  function update() {
-    const now = new Date();
-    
-    // Obtener la fecha/hora actual en la zona horaria objetivo
-    const nowInTZString = now.toLocaleString("en-US", { timeZone: WEDDING_CONFIG.timeZone });
-    const nowInTZ = new Date(nowInTZString);
-
-    // Fecha objetivo
-    const targetDate = new Date(WEDDING_CONFIG.targetDateISO);
-
-    const diffMs = targetDate - nowInTZ;
-
-    if (diffMs <= 0) {
-      bannerEl.style.display = "none";
-      finishedMsgEl.style.display = "block";
-      finishedMsgEl.textContent = WEDDING_CONFIG.finishedMessage;
-      return;
-    }
-
-    const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diffMs / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
-
-    daysEl.textContent = String(days).padStart(2, "0");
-    hoursEl.textContent = String(hours).padStart(2, "0");
-    minutesEl.textContent = String(minutes).padStart(2, "0");
+function getTargetTimestamp(dateString, timeZone) {
+  // Al no haberse proporcionado hora, el objetivo es el inicio del día en la zona indicada.
+  // Convierte la medianoche local a UTC usando Intl para contemplar la zona horaria.
+  const [year, month, day] = dateString.split("-").map(Number);
+  const desired = { year, month, day, hour: 0, minute: 0, second: 0 };
+  let guess = Date.UTC(year, month - 1, day);
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone, year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"
+  });
+  for (let i = 0; i < 3; i++) {
+    const parts = Object.fromEntries(formatter.formatToParts(new Date(guess))
+      .filter(p => p.type !== "literal").map(p => [p.type, Number(p.value)]));
+    const shownAsUTC = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+    const desiredAsUTC = Date.UTC(desired.year, desired.month - 1, desired.day, desired.hour, desired.minute, desired.second);
+    guess += desiredAsUTC - shownAsUTC;
   }
-
-  update();
-  setInterval(update, 1000);
+  return guess;
 }
+
+const target = getTargetTimestamp(WEDDING_CONFIG.date, WEDDING_CONFIG.timezone);
+const $ = id => document.getElementById(id);
+
+function updateCountdown() {
+  const remaining = target - Date.now();
+  if (remaining <= 0) {
+    $("countdown").hidden = true;
+    $("countdown-intro").hidden = true;
+    $("wedding-day").hidden = false;
+    return;
+  }
+  const totalMinutes = Math.floor(remaining / 60000);
+  $("days").textContent = Math.floor(totalMinutes / 1440).toLocaleString("es-MX");
+  $("hours").textContent = String(Math.floor((totalMinutes % 1440) / 60)).padStart(2, "0");
+  $("minutes").textContent = String(totalMinutes % 60).padStart(2, "0");
+}
+updateCountdown();
+window.setInterval(updateCountdown, 1000);
