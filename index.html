@@ -1,129 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invitación Boda - Ana & Julio</title>
-  
-  <!-- Tipografías de Google Fonts -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Invitación de boda de Ana y Julio. 19 de diciembre de 2026, Tarandacuao, Guanajuato.">
+  <title>Ana &amp; Julio | Nuestra boda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Great+Vibes&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <main class="invitation">
+    <div class="floral floral-left" aria-hidden="true"><img src="assets/flores-izquierda.svg" alt=""></div>
+    <div class="floral floral-right" aria-hidden="true"><img src="assets/flores-derecha.svg" alt=""></div>
 
-  <!-- Contenedor Principal estilo Papelería Fina -->
-  <main class="invitation-card">
-    
-    <!-- Ilustraciones Botánicas en las Esquinas -->
-    <div class="floral-decoration top-left">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 10 Q 50 80, 120 40 T 180 120" stroke="#C39E67" stroke-width="1.5" fill="none"/>
-        <path d="M30 10 C 60 40, 40 90, 10 100 C 60 110, 90 70, 30 10 Z" stroke="#C39E67" stroke-width="1" fill="none"/>
-        <path d="M70 20 C 100 40, 110 80, 80 110 C 110 90, 130 50, 70 20 Z" stroke="#C39E67" stroke-width="1" fill="none"/>
-        <!-- Trazo fino emulando grabado metálico floral -->
-        <circle cx="45" cy="45" r="12" stroke="#C39E67" stroke-width="1" />
-        <circle cx="95" cy="65" r="16" stroke="#C39E67" stroke-width="1" />
-        <path d="M45 25 Q 45 45, 25 45 Q 45 45, 45 65 Q 45 45, 65 45 Q 45 45, 45 25 Z" stroke="#C39E67" stroke-width="0.8"/>
-      </svg>
-    </div>
-
-    <div class="floral-decoration top-right">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M190 10 Q 150 80, 80 40 T 20 120" stroke="#C39E67" stroke-width="1.5" fill="none"/>
-        <path d="M170 10 C 140 40, 160 90, 190 100 C 140 110, 110 70, 170 10 Z" stroke="#C39E67" stroke-width="1" fill="none"/>
-        <path d="M130 20 C 100 40, 90 80, 120 110 C 90 90, 70 50, 130 20 Z" stroke="#C39E67" stroke-width="1" fill="none"/>
-        <circle cx="155" cy="45" r="12" stroke="#C39E67" stroke-width="1" />
-        <circle cx="105" cy="65" r="16" stroke="#C39E67" stroke-width="1" />
-        <path d="M155 25 Q 155 45, 135 45 Q 155 45, 155 65 Q 155 45, 175 45 Q 155 45, 155 25 Z" stroke="#C39E67" stroke-width="0.8"/>
-      </svg>
-    </div>
-
-    <!-- SECCIÓN C: SOBRE DORADO CON FOTOGRAFÍA -->
-    <section class="envelope-wrapper">
-      <div class="envelope-container">
-        
-        <!-- Solapa Trasera Superior del Sobre -->
-        <div class="envelope-back-flap"></div>
-
-        <!-- Fotografía de los Novios -->
-        <div class="photo-frame">
-          <img id="couple-photo" src="assets/novios.jpg" alt="Ana y Julio" />
+    <section class="hero-envelope" aria-label="Fotografía de Ana y Julio">
+      <div class="envelope">
+        <div class="envelope-frame"></div>
+        <div class="photo-window"><img id="couple-photo" src="assets/foto-pareja-placeholder.png" alt="Fotografía de Ana y Julio"></div>
+        <div class="flap flap-left"></div>
+        <div class="flap flap-right"></div>
+        <div class="front-flap"></div>
+        <div class="monogram" aria-label="Iniciales A y J">
+          <span class="monogram-letters" id="monogram">A&amp;J</span>
+          <svg class="monogram-botanical" viewBox="0 0 110 36" aria-hidden="true">
+            <path d="M4 5 Q26 29 61 24 Q37 37 13 13 M12 8 Q28 25 51 23 M65 25 C66 9 81 7 87 18 C95 7 106 15 103 25 C96 34 75 34 65 25Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M84 13 L84 30 M75 19 L93 25 M77 28 L91 17" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
         </div>
-
-        <!-- Solapas Diagonales Frontales -->
-        <div class="envelope-flap-left"></div>
-        <div class="envelope-flap-right"></div>
-        <div class="envelope-bottom-base"></div>
-
-        <!-- Emblema Circular con Iniciales -->
-        <div class="emblem-seal">
-          <div class="emblem-content">
-            <span class="initials" id="emblem-initials">A & J</span>
-            <svg class="emblem-wreath" viewBox="0 0 100 40" fill="none" stroke="#FFFFFF" stroke-width="1.2">
-              <path d="M10 25 Q 30 35, 50 32 Q 70 35, 90 25" />
-              <path d="M25 28 C 22 22, 15 25, 20 20 C 25 18, 30 25, 25 28 Z" fill="none" />
-              <path d="M75 28 C 78 22, 85 25, 80 20 C 75 18, 70 25, 75 28 Z" fill="none" />
-              <circle cx="50" cy="30" r="3" />
-            </svg>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <!-- SECCIÓN D: NOMBRES DE LOS NOVIOS -->
-    <h1 class="couple-names" id="couple-names-text">Ana & Julio</h1>
-
-    <!-- SECCIÓN E: SUBTÍTULO -->
-    <div class="subtitle-container">
-      <span class="divider-line"></span>
-      <h2 class="subtitle-text">NUESTRA BODA</h2>
-      <span class="divider-line"></span>
-    </div>
-
-    <!-- SECCIÓN F: FECHA EN CÁPSULA -->
-    <div class="date-capsule">
-      <span class="date-text" id="display-date">19 | DICIEMBRE | 26</span>
-    </div>
-
-    <!-- SECCIÓN G: LUGAR DE LA CEREMONIA -->
-    <div class="location-details">
-      <p class="venue" id="venue-name">PARROQUIA DE SANTIAGO APÓSTOL</p>
-      <p class="city" id="venue-city">TARANDACUAO, GTO.</p>
-    </div>
-
-    <!-- SECCIÓN H: TEXTO PRINCIPAL -->
-    <h3 class="save-the-date-heading">RESERVA LA FECHA</h3>
-
-    <!-- SECCIÓN I: CUENTA REGRESIVA -->
-    <section class="countdown-section">
-      <p class="countdown-label">FALTAN:</p>
-      
-      <div class="countdown-banner" id="countdown-banner">
-        <div class="countdown-col">
-          <span class="countdown-number" id="cd-days">00</span>
-          <span class="countdown-unit">DÍAS</span>
-        </div>
-        <div class="countdown-col">
-          <span class="countdown-number" id="cd-hours">00</span>
-          <span class="countdown-unit">HORAS</span>
-        </div>
-        <div class="countdown-col">
-          <span class="countdown-number" id="cd-minutes">00</span>
-          <span class="countdown-unit">MINUTOS</span>
-        </div>
-      </div>
-      
-      <div id="countdown-finished-message" class="finished-message" style="display: none;">
-        ¡HOY ES EL GRAN DÍA!
-      </div>
+    <section class="details">
+      <h1 class="couple-names"><span id="bride-name">Ana</span> <span class="ampersand">&amp;</span> <span id="groom-name">Julio</span></h1>
+      <div class="subtitle"><span></span><p>NUESTRA BODA</p><span></span></div>
+      <p class="date-pill" id="date-label">19 | DICIEMBRE | 26</p>
+      <p class="venue"><span id="venue-name">PARROQUIA DE SANTIAGO APÓSTOL</span><span id="venue-city">TARANDACUAO, GTO.</span></p>
+      <p class="save-date">RESERVA LA FECHA</p>
     </section>
 
+    <section class="countdown-area" aria-label="Cuenta regresiva para la boda">
+      <p class="countdown-intro" id="countdown-intro">FALTAN:</p>
+      <div class="countdown" id="countdown">
+        <div class="count-unit"><span class="count-number" id="days">--</span><span class="count-label">DÍAS</span></div>
+        <div class="count-unit"><span class="count-number" id="hours">--</span><span class="count-label">HORAS</span></div>
+        <div class="count-unit"><span class="count-number" id="minutes">--</span><span class="count-label">MINUTOS</span></div>
+      </div>
+      <p class="wedding-day" id="wedding-day" hidden>¡HOY ES EL GRAN DÍA!</p>
+    </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
