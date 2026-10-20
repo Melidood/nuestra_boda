@@ -7,9 +7,12 @@
   <meta name="description" content="Invitación de boda de Ana y Julio. 19 de diciembre de 2026, Tarandacuao, Guanajuato.">
   <title>Ana &amp; Julio | Nuestra boda</title>
   
+  <!-- Tipografías de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Great+Vibes&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  
+  <!-- Enlace a tu archivo de estilos -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,16 +30,16 @@
     <div class="floral floral-left" aria-hidden="true"><img src="flores-izquierda.svg" alt=""></div>
     <div class="floral floral-right" aria-hidden="true"><img src="flores-derecha.svg" alt=""></div>
 
-    <!-- Sobre Real con la Fotografía y el Logo -->
+    <!-- Sobre Vectorial con la Fotografía y el Logo -->
     <section class="hero-envelope" aria-label="Fotografía de Ana y Julio">
       <div class="envelope-image-container">
         
         <!-- Solapa superior trasera -->
         <div class="envelope-top-flap"></div>
 
-        <!-- Fotografía de los novios -->
+        <!-- Fotografía real de los novios -->
         <div class="photo-window">
-          <img id="couple-photo" src="foto-pareja-placeholder.png" alt="Fotografía de Ana y Julio">
+          <img id="couple-photo" src="novios.jpg" alt="Fotografía de Ana y Julio">
         </div>
 
         <!-- Imagen del sobre vectorial (sobre.svg) -->
@@ -57,21 +60,21 @@
       <p class="date-pill" id="date-label">19 | DICIEMBRE | 26</p>
       <p class="venue"><span id="venue-name">PARROQUIA DE SANTIAGO APÓSTOL</span><span id="venue-city">TARANDACUAO, GTO.</span></p>
       
-      <!-- Botón de Confirmación RSVP -->
+      <!-- Botón de Confirmación RSVP (WhatsApp) -->
       <div class="rsvp-container">
         <a id="rsvp-button" href="#" target="_blank" rel="noopener noreferrer" class="rsvp-btn">
           CONFIRMAR ASISTENCIA
         </a>
       </div>
 
-      <p class="save-date">RESERVA LA FECHA</p>
+      <p class="save-date">SAVE THE DATE</p>
     </section>
 
     <!-- Cuenta regresiva con Días, Horas, Minutos y Segundos -->
     <section class="countdown-area" aria-label="Cuenta regresiva para la boda">
       <p class="countdown-intro" id="countdown-intro">FALTAN:</p>
       <div class="countdown" id="countdown">
-        <div class="count-unit"><span class="count-number" id="days">--</span><span class="count-label">DÍAS</span></div>
+        <div class="count-unit"><span class="count-number" id="days">--</span><span class="count-label">DIAS</span></div>
         <div class="count-unit"><span class="count-number" id="hours">--</span><span class="count-label">HORAS</span></div>
         <div class="count-unit"><span class="count-number" id="minutes">--</span><span class="count-label">MINUTOS</span></div>
         <div class="count-unit"><span class="count-number" id="seconds">--</span><span class="count-label">SEGUNDOS</span></div>
