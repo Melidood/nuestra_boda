@@ -30,7 +30,7 @@ body {
 
 .invitation { 
   position: relative; 
-  width: 100%; 
+  width: 80%; 
   max-width: var(--page-width); 
   min-height: 100vh; 
   margin: 0 auto; 
