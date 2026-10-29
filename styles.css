@@ -116,7 +116,7 @@ body {
   position: absolute;
   z-index: 4;
   left: 50%;
-  bottom: 6%;
+  bottom: 12%;
   transform: translateX(-50%);
   width: 20%;
   aspect-ratio: 1;
