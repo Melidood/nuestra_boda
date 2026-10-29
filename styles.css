@@ -34,7 +34,7 @@ body {
   max-width: var(--page-width); 
   min-height: 100vh; 
   margin: 0 auto; 
-  padding-top: 25px; 
+  padding-top: 5px; /* Reducido al mínimo para que el sobre suba */
   text-align: center; 
   isolation: isolate; 
 }
@@ -69,9 +69,9 @@ body {
 
 /* Estructura del Sobre y Animaciones */
 .hero-envelope { 
-  width: 85%; 
-  max-width: 520px; 
-  margin: 0 auto -15px auto; /* Reducido espacio inferior del sobre */
+  width: 82%; 
+  max-width: 500px; 
+  margin: 0 auto -15px auto; 
   position: relative; 
   z-index: 2;
   cursor: pointer;
@@ -140,13 +140,13 @@ body {
 
 /* Secciones de texto */
 .details { 
-  padding: 0 5% 0; /* Padding superior eliminado para mayor cercanía */
+  padding: 0 5% 0; 
   position: relative; 
   z-index: 3;
 }
 
 .couple-names { 
-  margin: -5px 0 0 0; /* Margen superior negativo para acercarlo directamente al sobre */
+  margin: -5px 0 0 0; 
   color: var(--olive-theme); 
   font-family: "Swirly Canalope PERSONAL USE", "Great Vibes", cursive; 
   font-size: clamp(48px, 8.5vw, 92px); 
@@ -268,7 +268,7 @@ body {
 [hidden] { display: none !important; }
 
 @media (max-width: 600px) {
-  .invitation { padding-top: 15px; }
+  .invitation { padding-top: 5px; }
   .floral { width: 130px; }
   .floral-left { left: 0; }
   .floral-right { right: 0; }
