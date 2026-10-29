@@ -102,8 +102,8 @@ body {
   position: relative; 
   width: 100%; 
   height: 0;
-  padding-bottom: 73.5%; /* Forzamos la altura exacta de la ilustración del sobre */
-  overflow: hidden;      /* Cortamos el excedente amarillo */
+  padding-bottom: 73.5%; 
+  overflow: hidden;      
 }
 
 /* Cambiado a absolute para trabajar en conjunto con el recorte del contenedor */
@@ -123,7 +123,7 @@ body {
   position: absolute;
   z-index: 4;
   left: 50%;
-  bottom: 8%; /* Ajustado de 10% a 8% para mantener el centrado vertical en el sobre */
+  bottom: 8%; 
   transform: translateX(-50%);
   width: 22%;
   aspect-ratio: 1;
@@ -218,16 +218,18 @@ body {
   letter-spacing: 1.5px;
 }
 .countdown-area { width: 100%; }
+
 .countdown { 
   background: var(--olive-theme); 
   width: 100%; 
   min-height: 130px; 
-  padding: 18px 4% 18px; 
+  padding: 18px 4%; 
   display: grid; 
   grid-template-columns: repeat(4, 1fr); 
   gap: 8px; 
   color: white; 
 }
+
 .count-unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .count-number { font: 400 clamp(28px, 5vw, 50px)/1 "Playfair Display", Georgia, serif; font-variant-numeric: tabular-nums; }
 .count-label { font-size: clamp(10px, 1.3vw, 13px); letter-spacing: 1.5px; font-family: "Mundial Narrow Variable Light", Montserrat, sans-serif; }
@@ -260,10 +262,31 @@ body {
 
 [hidden] { display: none !important; }
 
+/* REGLAS EXCLUSIVAS PARA ESCRITORIO (Pantallas grandes) */
+@media (min-width: 601px) {
+  /* Rompe el contenedor limitado y fija las flores en los extremos del navegador */
+  .floral {
+    position: fixed;
+    width: 28vw;
+    max-width: 440px;
+  }
+  
+  /* Fuerza a la franja verde a desbordar el contenedor central y ocupar el 100% de la ventana */
+  .countdown {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 18px 22%; /* Agrupa los números de forma más elegante en el centro */
+  }
+}
+
+/* REGLAS EXCLUSIVAS PARA MÓVIL */
 @media (max-width: 600px) {
   .invitation { padding-top: 15px; }
   .floral { width: 130px; }
   .hero-envelope { width: 92%; }
   .countdown { padding: 15px 2% 15px; gap: 4px; }
 }
-
